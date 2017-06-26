@@ -6,7 +6,7 @@ var Film = function(options){
 
 Film.prototype = {
   addReview: function(review){
-    this.reviews.push(review)
+    this.reviews.push(review);
   }
 }
 

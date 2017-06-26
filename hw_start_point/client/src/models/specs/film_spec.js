@@ -6,13 +6,13 @@ describe('Film', function () {
 
   beforeEach(function () {
     film = new Film({
-      title: "Titanic",
-      genres: ["Drama"]
+      title: 'Titanic',
+      actors: ['Leonardo DiCaprio']
     });
   });
 
   it('should have title titanic', function () {
-    assert.equal(film.title, "Titanic");
+    assert.equal(film.title, 'Titanic');
   });
 
-})
+});
