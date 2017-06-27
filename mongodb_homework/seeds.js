@@ -1,4 +1,4 @@
-use kaliban_whisp;
+use kalibanwhisp;
 
 db.planets.insert([
   {

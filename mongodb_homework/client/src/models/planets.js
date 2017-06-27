@@ -1,34 +1,22 @@
-var Film = require('./film');
-var Review = require('./review');
+var Planet = require('./planet.js');
+var PlanetaryData = require('./planetary_data.js');
 
-var Films = function(){
+var Planets = function(){}
 
-  var review1 = new Review({
-    comment: "It's not even a thing. What just happened. I want my life back.",
-    rating: 1,
-    author: "Val"
-  });
-
-  var review2 = new Review({
-    comment: "Pew pew pew lightsabers space cowboys whoot what's not to love",
-    rating: 100,
-    author: "Val"
-  });
-
-  var film1 = new Film({
-    title: "Now You See Me",
-    actors: ["Woody Harrelson", "Jesse Eisenberg"]
-  });
-
-  var film2 = new Film({
-    title: "Star Wars Episode IV: A New Hope",
-    actors: ["Harrison Ford", "Alec Guiness"]
-  });
-
-  film1.addReview(review1);
-  film2.addReview(review2);
-
-  return [film1, film2];
+Planets.prototype = {
+  makeRequest: function(url, onRequestComplete) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.addEventListener("load", function() {
+      if(request.status !== 200) console.log("ERROR in makeRequest");
+      var jsonString = request.responseText;
+      var resultsData = JSON.parse(jsonString);
+      onRequestComplete(resultsData);
+    });
+    request.send();
+  }
 }
 
-module.exports = Films;
+
+
+module.exports = Planets;

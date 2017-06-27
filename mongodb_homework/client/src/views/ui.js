@@ -1,10 +1,10 @@
 //IGNORE
 
-var Films = require('../models/films');
+var Planets = require('../models/planets.js');
 
 var UI = function(){
-  var films = new Films();
-  this.render(films);
+  var planets = new Planets();
+  this.render(planets);
 }
 
 UI.prototype = {
@@ -20,19 +20,19 @@ UI.prototype = {
   },
 
   createReview: function(li, review){
-    this.appendText(li, review.comment, "Comment: ");
-    this.appendText(li, review.rating, "Rating: ");
-    this.appendText(li, review.author, "Author: ");
+    this.appendText(li, planetary_data.comment, "Comment: ");
+    this.appendText(li, planetary_data.rating, "Population: ");
+    this.appendText(li, planetary_data.climate, "Climate: ");
   },
 
-  render: function(films) {
-    var container = document.getElementById("films");
+  render: function(planets) {
+    var container = document.getElementById("planets");
 
-    for(var film of films) {
+    for(var film of planets) {
       var li = document.createElement("li");
-      this.appendText(li, film.title, "Film: ");
+      this.appendText(li, planet.name, "Planet: ");
 
-      for(var review of film.reviews){
+      for(var data of planet.planetary_data){
         this.createReview(li, review);
       }
       container.appendChild(li);

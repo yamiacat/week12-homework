@@ -72,11 +72,11 @@
 
 //IGNORE
 
-var Films = __webpack_require__(3);
+var Planets = __webpack_require__(7);
 
 var UI = function(){
-  var films = new Films();
-  this.render(films);
+  var planets = new Planets();
+  this.render(planets);
 }
 
 UI.prototype = {
@@ -92,19 +92,19 @@ UI.prototype = {
   },
 
   createReview: function(li, review){
-    this.appendText(li, review.comment, "Comment: ");
-    this.appendText(li, review.rating, "Rating: ");
-    this.appendText(li, review.author, "Author: ");
+    this.appendText(li, planetary_data.comment, "Comment: ");
+    this.appendText(li, planetary_data.rating, "Population: ");
+    this.appendText(li, planetary_data.climate, "Climate: ");
   },
 
-  render: function(films) {
-    var container = document.getElementById("films");
+  render: function(planets) {
+    var container = document.getElementById("planets");
 
-    for(var film of films) {
+    for(var film of planets) {
       var li = document.createElement("li");
-      this.appendText(li, film.title, "Film: ");
+      this.appendText(li, planet.name, "Planet: ");
 
-      for(var review of film.reviews){
+      for(var data of planet.planetary_data){
         this.createReview(li, review);
       }
       container.appendChild(li);
@@ -130,10 +130,68 @@ window.addEventListener('load', app);
 
 /***/ }),
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/user/Desktop/cohort_12_notes/week_12/homework_week12/mongodb_homework/client/src/models/films.js'");
+var Planet = function(options){
+  this.name = options.name;
+  this.imperial_holdings = options.imperial_holdings;
+  this.type = options.type;
+
+  this.planetary_data = options.planetary_data || [];
+}
+
+Planet.prototype = {
+  addPlanetaryData: function(data){
+    this.planetary_data.push(data)
+  }
+}
+
+module.exports = Planet;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+var PlanetaryData = function(options){
+  this.comment = options.comment;
+  this.population = options.population;
+  this.climate = options.climate;
+}
+
+module.exports = PlanetaryData;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Planet = __webpack_require__(5);
+var PlanetaryData = __webpack_require__(6);
+
+var Planets = function(){}
+
+Planets.prototype = {
+  makeRequest: function(url, onRequestComplete) {
+    var request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.addEventListener("load", function() {
+      if(request.status !== 200) console.log("ERROR in makeRequest");
+      var jsonString = request.responseText;
+      var resultsData = JSON.parse(jsonString);
+      onRequestComplete(resultsData);
+    });
+    request.send();
+  }
+}
+
+
+
+module.exports = Planets;
+
 
 /***/ })
 /******/ ]);
