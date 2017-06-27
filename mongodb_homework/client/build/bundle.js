@@ -70,6 +70,8 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+//IGNORE
+
 var Films = __webpack_require__(3);
 
 var UI = function(){
@@ -101,7 +103,7 @@ UI.prototype = {
     for(var film of films) {
       var li = document.createElement("li");
       this.appendText(li, film.title, "Film: ");
-      
+
       for(var review of film.reviews){
         this.createReview(li, review);
       }
@@ -111,6 +113,7 @@ UI.prototype = {
 }
 
 module.exports = UI;
+
 
 /***/ }),
 /* 1 */
@@ -126,73 +129,11 @@ window.addEventListener('load', app);
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-var Film = function(options){
-  this.title = options.title;
-  this.actors = options.actors;
-  this.reviews = options.reviews || [];
-}
-
-Film.prototype = {
-  addReview: function(review){
-    this.reviews.push(review)
-  }
-}
-
-module.exports = Film;
-
-/***/ }),
+/* 2 */,
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Film = __webpack_require__(2);
-var Review = __webpack_require__(4);
-
-var Films = function(){
-
-  var review1 = new Review({
-    comment: "It's not even a thing. What just happened. I want my life back.",
-    rating: 1,
-    author: "Val"
-  });
-
-  var review2 = new Review({
-    comment: "Pew pew pew lightsabers space cowboys whoot what's not to love",
-    rating: 100,
-    author: "Val"
-  });
-
-  var film1 = new Film({
-    title: "Now You See Me",
-    actors: ["Woody Harrelson", "Jesse Eisenberg"]
-  });
-
-  var film2 = new Film({
-    title: "Star Wars Episode IV: A New Hope",
-    actors: ["Harrison Ford", "Alec Guiness"]
-  });
-
-  film1.addReview(review1);
-  film2.addReview(review2);
-
-  return [film1, film2];
-}
-
-module.exports = Films;
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports) {
 
-var Review = function(options){
-  this.comment = options.comment;
-  this.rating = options.rating;
-  this.author = options.author;
-}
-
-module.exports = Review;
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/user/Desktop/cohort_12_notes/week_12/homework_week12/mongodb_homework/client/src/models/films.js'");
 
 /***/ })
 /******/ ]);
