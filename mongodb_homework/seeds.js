@@ -37,4 +37,4 @@ db.planets.insert([
       population: 0.01,
       climate: "Oceanic, with long cycle hurricane season."}]
   }
-);
+]);

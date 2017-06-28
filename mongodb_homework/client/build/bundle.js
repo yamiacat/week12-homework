@@ -72,7 +72,7 @@
 
 //IGNORE
 
-var Planets = __webpack_require__(7);
+var Planets = __webpack_require__(4);
 
 var UI = function(){
   var planets = new Planets();
@@ -129,10 +129,7 @@ window.addEventListener('load', app);
 
 
 /***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */
+/* 2 */
 /***/ (function(module, exports) {
 
 var Planet = function(options){
@@ -153,7 +150,7 @@ module.exports = Planet;
 
 
 /***/ }),
-/* 6 */
+/* 3 */
 /***/ (function(module, exports) {
 
 var PlanetaryData = function(options){
@@ -166,11 +163,11 @@ module.exports = PlanetaryData;
 
 
 /***/ }),
-/* 7 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Planet = __webpack_require__(5);
-var PlanetaryData = __webpack_require__(6);
+var Planet = __webpack_require__(2);
+var PlanetaryData = __webpack_require__(3);
 
 var Planets = function(){}
 
